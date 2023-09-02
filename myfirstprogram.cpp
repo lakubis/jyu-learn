@@ -2,8 +2,9 @@
 using namespace std;
 
 int main(){
-    cout << "Hello World!\t";
-    cout << "Dita cantik";
-    cout << "Lagi \"apa?";
+    cout << "Hello World!" << endl;
+    int myNum = 15;
+    cout << myNum;
     return 0;
 }
+
