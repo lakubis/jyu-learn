@@ -1,10 +1,11 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main(){
-    int x;
-    cout << "Type a number: ";
-    cin >> x;
-    cout << "Your number is: " << x;
+    string fullName;
+    cout << "Type your full name: ";
+    getline(cin,fullName);
+    cout << "Your full name is: " << fullName;
 }
 
