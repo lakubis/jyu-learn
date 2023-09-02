@@ -3,8 +3,9 @@ using namespace std;
 
 int main(){
     cout << "Hello World!" << endl;
-    int myNum = 15;
+    const int myNum = 15;
     cout << "I am " << myNum << " years old." << endl;
+    myNum = 10;
     return 0;
 }
 
