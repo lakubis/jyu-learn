@@ -22,7 +22,7 @@ class MeasurementBase:
 
         # test the function has __call__ method
         if not callable(measurement._measure):
-            eprint(f'{measurement.name} has no callable method measure')
+            print(f"{measurement.name} has no callable method measure")
             raise ValueError
 
         print(f'adding new measurement: name={measurement.name} frequency={frequency}')
@@ -102,4 +102,3 @@ if __name__ == '__main__':
         l,u = limits.get()
         print(f' average = {ave}')
         print(f' lower, upper = {l,u}')
-        
