@@ -1,4 +1,30 @@
 """
+Assignments by: Felix Cahyadi
+Date created: 16.10.2023
+Last modified: 16.10.2023 20:00
+"""
+
+"""
+Some notes: I tried to run this using Jupyter Notebook so that I can show the output, but was unsuccessful. I tried following this tutorial: https://kb.oakland.edu/uts/HPCJupyterMPI
+
+But I couldn't follow it because I'm using windows, MPICH requires linux to run. Because of that, I am using the Python script file. To run it, I used the command mpiexec -n 4 python demo6_Felix_Cahyadi.py.
+
+Therefore, I'm just going to copy the output here:
+
+Felix_Cahyadi.py
+rank 2 has finished
+rank 3 has finished
+rank 1 has finished
+generated 100 random symmetric matrices, shape (300, 300)
+using 4 processes
+rank 0 sending done
+max eigval 22797.220103452557
+calculations took 1.3469968000426888 seconds
+rank 0 has finished
+"""
+
+
+"""
 mpi4py calculation of eigenvalues of multiple matrices
 
 """
@@ -42,7 +68,7 @@ def task(mat):
     return res
 
 if __name__=='__main__':
-    N = 1000
+    N = 100
     n = 300
     shape=(n,n)
     tag_end=1111 # arbitrary end signal
