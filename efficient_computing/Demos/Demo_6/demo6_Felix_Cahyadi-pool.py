@@ -7,6 +7,19 @@ Last modified: -
 """
 Here, I'm going to implement the multiprocessing pool. The original version is demo6_Felix_Cahyadi.py
 
+This is the output of the program for 100 matrices and Pool(4):
+
+generated 100 random symmetric matrices, shape (300, 300)
+max eigval 22797.220103452557
+Total time = 2.459024429321289 s
+PS E:\RADMEP_stuff\Semester 1 - Jyväskylä\jyu-learn> 
+
+I tried using Pool(8) and Pool(12), but it doesn't increase the computation speed, rather it increases them. In case of Pool(12), it takes about 3 second to finish all of them.
+
+But if I put 1000 matrices with Pool(4), it takes 16.158901929855347 s while 1000 matrices with Pool(8) takes 11.616026639938354 s.
+
+The conclusion that I get is that the computation is only worth it to be parallelized if we have a lot of items. Maybe it takes a while to divide the task.
+
 """
 
 
@@ -19,6 +32,7 @@ mpi4py calculation of eigenvalues of multiple matrices
 
 from mpi4py import MPI
 from multiprocessing import Pool
+from time import time as T
 
 import matplotlib.pyplot as plt
 
@@ -58,8 +72,21 @@ if __name__=='__main__':
     N = 100
     n = 300
     shape=(n,n)
+
+    data = gen_data(N, shape)
     
+    tic = T()
+    emax=[]
+    with Pool(8) as p:
+        evals = p.map(task, data) # We generate evals
+        emax.append(np.max(evals)) # Append the maximum evals to emax
+    toc = T()
+
+
+    print(f'max eigval {np.max(emax)}') # get the maximum emax
+    print(f"Total time = {toc-tic} s")
     
+
 
 
     
