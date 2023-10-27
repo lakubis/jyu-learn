@@ -16,7 +16,8 @@ L = 1.00 ± 0.01 # Length of pendulum
 
 
 # initial speed and angle
-u0 = [0 ± 0, π/60 ± 0.01]
+u = [0 ± 0, π/60 ± 0.01]
+print(u0)
 tspan = (0.0, 2π)
 
 # Define the problem
